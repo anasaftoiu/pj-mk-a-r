@@ -167,7 +167,7 @@ h2 {
 }
 
 /* ==========================================================================
-   4. SECTIUNE INTRO (CASETA ALBĂ DE SUB HERO - CENTRATĂ CORECT VIZUAL)
+   4. SECTIUNE INTRO (CASETA ALBĂ DE SUB HERO)
    ========================================================================== */
 .intro-section {
     background-color: #ffffff; 
@@ -240,7 +240,7 @@ h2 {
 }
 
 /* ==========================================================================
-   6. TABELUL DE PREȚURI (SPECIFIC PAGINII DE SERVICII)
+   6. TABELUL DE PREȚURI RESPONSIVE (ARATĂ PERFECT PC + MOBIL)
    ========================================================================== */
 .prices-table {
     width: 100%;
@@ -275,24 +275,26 @@ h2 {
 
 .prices-table td strong {
     color: #1A237E;
+    font-size: 16px;
 }
 
 .prices-table td small {
     color: #7B8A96;
     font-size: 13px;
+    display: inline-block;
+    margin-top: 4px;
 }
 
 /* ==========================================================================
-   7. SEȚIUNEA GALERIE FOTO REPARATĂ (COMPACTĂ PE PC ȘI MOBIL, GRID NATIIV)
+   7. SEȚIUNEA GALERIE FOTO REPARATĂ 
    ========================================================================== */
 .gallery-grid {
     display: grid;
-    /* Împiedică pozele să devină gigantice folosind o mărime maximă controlată de 240px */
     grid-template-columns: repeat(auto-fit, minmax(220px, 240px)); 
     gap: 25px;
     margin-top: 30px;
     width: 100%;
-    justify-content: center; /* Menține întregul grid centrat frumos pe mijlocul ecranului */
+    justify-content: center; 
 }
 
 .gallery-item {
@@ -304,11 +306,10 @@ h2 {
     width: 100%;
 }
 
-/* REPARAT DEFINITIV: Pozele nu mai sunt uriașe pe niciun tip de ecran */
 .gallery-item img {
     width: 100%;
-    height: 300px;       /* Dimensiune portret verticală compactă perfectă */
-    object-fit: cover;   /* Decupează conținutul fără să lungească sau să distorsioneze imaginea */
+    height: 300px;       
+    object-fit: cover;   
     display: block;
 }
 
@@ -327,7 +328,7 @@ h2 {
 }
 
 /* ==========================================================================
-   8. CORECTARE COMPLETĂ FOOTER (CENTRAT ȘI IMPINS JOS)
+   8. FOOTER
    ========================================================================== */
 footer {
     background-color: #ffffff;
@@ -364,7 +365,6 @@ footer p {
         padding: 0 5px;              
     }
 
-    /* Meniul rămâne perfect orizontal pe ecranele tactile */
     .menu ul {
         flex-direction: row;       
         flex-wrap: wrap;           
@@ -385,7 +385,6 @@ footer p {
         font-size: 26px;
     }
 
-    /* Încadrează butoanele pe verticală exclusiv pe mobil pentru accesibilitate */
     .cta-buttons {
         flex-direction: column;
         gap: 15px;
@@ -401,4 +400,43 @@ footer p {
         padding: 20px;
         width: calc(100% - 30px);
     }
-}
+
+    /* REPARAREA TABELULUI PENTRU TELEFON (Transformă rândurile în blocuri curate) */
+    .prices-table {
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .prices-table thead {
+        display: none; /* Ascunde capul de tabel, nu avem loc pentru el */
+    }
+
+    .prices-table tr {
+        display: block !important;
+        background: #ffffff;
+        margin-bottom: 20px;
+        border-radius: 16px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .prices-table td {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important; /* Centrează textul pentru un look modern */
+        padding: 8px 10px !important;
+        border: none !important;
+    }
+
+    /* Adăugăm un prefix text vizual automat în fața duratei și a prețului doar pe mobil */
+    .prices-table td:nth-child(2)::before {
+        content: "Durată: ";
+        font-weight: 600;
+        color: #4B0082;
+    }
+
+    .prices-table td:browse-child(3), 
+    .prices-table td:last-child {
+        font-weight: 700;
+        color: #1A237E;
+        font-size: 16px;
