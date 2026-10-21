@@ -1,29 +1,45 @@
 /* ==========================================================================
-   1. RESET ȘI STILURI GENERALE (PENTRU TOATE ECRANELE)
+   1. RESET, STRUCTURĂ ȘI FOOTER STABILIZAT (PENTRU TOATE ECRANELE)
    ========================================================================== */
 * {
-    box-sizing: border-box; /* Previne ieșirea elementelor din margini */
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Obligatoriu pentru a menține footer-ul la baza ferestrei pe pagini scurte */
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #F4F8FA; /* Albastru extrem de fin și deschis */
-    color: #2C3E50;            /* Gri închis spre albastru */
+    background-color: #F4F8FA;
+    color: #2C3E50;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column; /* Organizează structura paginii pe axă verticală */
+}
+
+/* Forțează conținutul principal să ocupe tot spațiul liber, împingând footer-ul jos */
+.hero-section, 
+.services-container, 
+.gallery-container, 
+.about-container,
+.intro-section,
+.featured-services {
+    flex-shrink: 0;
 }
 
 /* Containere universale - perfect centrate pe PC */
 .container, .services-container, .gallery-container, .about-container {
     max-width: 1000px;
-    margin: 0 auto; /* Centrează conținutul pe mijlocul ecranului */
+    margin: 0 auto;
     padding: 40px 20px;
 }
 
 h2 {
-    color: #4B0082; /* Accent Indigo */
-    font-size: 32px;
+    color: #4B0082;
+    font-size: 28px;
     font-weight: 600;
     text-align: center;
     margin-bottom: 10px;
@@ -32,18 +48,18 @@ h2 {
 .section-intro {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 40px auto; /* Centrează paragrafele introductive secundare */
+    margin: 0 auto 40px auto;
     color: #606F7B;
     font-size: 16px;
 }
 
 /* ==========================================================================
-   2. NAVBAR - STILIZAT REZISTENT ȘI RESPONSIVE
+   2. NAVBAR - DESIGN ORIGINAL ȘI CURAT PENTRU CALCULATOR (PC)
    ========================================================================== */
 .main-navbar {
     background-color: #ffffff;
-    padding: 20px 0;              
-    margin-bottom: 20px;          
+    padding: 30px 0;              
+    margin-bottom: 40px;          
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     position: sticky;
     top: 0;
@@ -55,7 +71,11 @@ h2 {
     max-width: 1000px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 15px;              
+    padding: 0 20px;              
+}
+
+.menu {
+    width: 100%;
 }
 
 .menu ul {
@@ -63,9 +83,8 @@ h2 {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row;       /* Linie orizontală nativă */
-    flex-wrap: wrap;           /* Previne ruperea layout-ului pe ecrane intermediare */
-    gap: 30px;                 /* Spațiere elegantă implicită */
+    flex-direction: row;       
+    gap: 45px;                
     justify-content: center;   
     align-items: center;          
     width: 100%;
@@ -74,15 +93,32 @@ h2 {
 .nav-link {
     text-decoration: none;
     color: #52606D;
-    font-size: 14px;           
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-size: 15px;              
+    font-weight: 500;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 6px 12px;
+    padding: 8px 0;
     display: block;               
     transition: all 0.3s ease;
     text-align: center;
-    white-space: nowrap;       
+    white-space: nowrap;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #4B0082;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 .nav-link:hover {
@@ -90,17 +126,17 @@ h2 {
 }
 
 /* ==========================================================================
-   3. PAGINA ACASĂ - HERO & PRIMUL PARAGRAF (INTRO) - REZOLVAT ALINIERE PC
+   3. PAGINA ACASĂ - HERO & PARAGRAFUL INTRO (ALINIAT ȘI CENTRAT PE PC)
    ========================================================================== */
 .hero-section {
     text-align: center;
-    padding: 60px 20px;
+    padding: 60px 20px; 
     max-width: 850px;
-    margin: 0 auto; /* Întotdeauna centrat pe mijlocul ecranului */
+    margin: 0 auto;
 }
 
 .hero-section h1 {
-    font-size: 38px;
+    font-size: 38px; 
     color: #1A237E;  
     line-height: 1.3;
     margin-bottom: 20px;
@@ -108,14 +144,14 @@ h2 {
 }
 
 .hero-section .subtitle {
-    font-size: 17px;
+    font-size: 16px;
     color: #52606D;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .cta-buttons {
     display: flex;
-    flex-direction: row; /* Pe PC butoanele stau frumos în linie orizontală */
+    flex-direction: row; 
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -131,7 +167,7 @@ h2 {
     letter-spacing: 0.5px;
     border-radius: 30px; 
     transition: all 0.3s ease;
-    width: auto;         /* Nu ocupă tot ecranul pe PC */
+    width: auto;         
     text-align: center;
     white-space: nowrap; 
 }
@@ -158,12 +194,12 @@ h2 {
     transform: translateY(-2px);
 }
 
-/* PRIMUL PARAGRAF - Corectat: adăugat margin: 30px auto pentru centrare perfectă pe PC */
+/* PARAGRAFUL INTRO - REPARAT: Centrat milimetric pe axa de mijloc a monitorului */
 .intro-section {
     background-color: #ffffff; 
     max-width: 800px;
-    margin: 30px auto; /* "auto" pe stânga-dreapta îl forțează să stea pe centru pe PC */
-    padding: 30px;
+    margin: 40px auto; /* "auto" pe laterale forțează centrarea stabilă pe PC */
+    padding: 30px 25px;
     border-radius: 16px;
     text-align: center;
     font-size: 16px;
@@ -173,7 +209,7 @@ h2 {
 }
 
 /* ==========================================================================
-   4. SECTIUNI DE CONȚINUT - CARDURI, TABELE ȘI GALERIE FOTO REZOLVATĂ
+   4. CONȚINUT EXTINS - CARDURI, TABELE ȘI PROPORȚII IMAGINI (PC)
    ========================================================================== */
 .featured-services {
     max-width: 1000px;
@@ -250,10 +286,19 @@ h2 {
     border-bottom: none;
 }
 
-/* GALERIA FOTO - Schimbată în Grid flexibil */
+.prices-table td strong {
+    color: #1A237E;
+}
+
+.prices-table td small {
+    color: #7B8A96;
+    font-size: 13px;
+}
+
+/* PORTODOLIU - Schimbat în structură fluidă echilibrată */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Împarte pozele proporțional */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     margin-top: 30px;
 }
@@ -266,20 +311,23 @@ h2 {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-/* POZELE DIN GALERIE - Corectat: Nu mai sunt uriașe pe PC */
+/* IMAGINI PORTRET - REPARAT: Nu mai escaladează uriaș pe ecrane late */
 .gallery-item img {
     width: 100%;
-    height: 280px;        /* Înălțime fixă elegantă pentru uniformizare */
-    object-fit: cover;    /* Decupează inteligent imaginea fără să o deformeze sau să o lungească */
+    height: 300px; 
+    object-fit: cover; 
     display: block;
 }
 
+/* FOOTER - REPARAT: Împins structural la baza paginii, fără suprapuneri */
 footer {
     background-color: #ffffff;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 25px 20px;
+    margin-top: auto; /* Elementul cheie care îl obligă să coboare singur la sfârșit */
     border-top: 1px solid #EBF1F5;
+    width: 100%;
+    flex-shrink: 0;
 }
 
 footer p {
@@ -289,15 +337,27 @@ footer p {
 }
 
 /* ==========================================================================
-   5. INTEROGĂRI MEDIA RESTRÂNSE STRICT PENTRU MOBIL (SUB 768px)
+   5. COMPRESIE STRICTĂ PENTRU MOBIL (SITUAȚII SUB 768px LATIME)
    ========================================================================== */
 @media screen and (max-width: 768px) {
+    .main-navbar {
+        padding: 15px 0;              
+        margin-bottom: 20px;          
+    }
+
+    .nav-container {
+        padding: 0 10px;              
+    }
+
+    /* Modifică exclusiv navbar-ul pe mobil în formă liniară */
     .menu ul {
-        gap: 6px 8px;          /* Îngustează distanța dintre butoanele meniului pe mobil */
+        flex-direction: row;       
+        flex-wrap: wrap;           
+        gap: 6px 8px;              
     }
 
     .nav-link {
-        font-size: 11px;       /* Meniu compact, complet orizontal de la stânga la dreapta */
+        font-size: 11px;              
         padding: 6px 6px;
         letter-spacing: 0.3px;
     }
@@ -307,14 +367,10 @@ footer p {
     }
 
     .hero-section h1 {
-        font-size: 26px;       /* Micșorează titlul ca să nu ocupe tot ecranul telefonului */
+        font-size: 28px; 
     }
 
-    .hero-section .subtitle {
-        font-size: 15px;
-    }
-
-    /* Doar pe mobil butoanele trec unul sub altul pentru accesibilitate la atingere */
+    /* Încadrează butoanele pe verticală doar pe telefon */
     .cta-buttons {
         flex-direction: column;
         gap: 15px;
@@ -323,11 +379,11 @@ footer p {
     .btn-primary, .btn-secondary {
         width: 100%;         
         max-width: 280px;    
-        font-size: 14px;
     }
 
+    /* Recuperează marginile de siguranță stânga-dreapta pentru citire pe mobil */
     .intro-section {
-        margin: 30px 15px;    /* Redă marginile laterale de siguranță pe ecranele tactile */
-        padding: 20px;
+        margin: 30px 15px;
+        padding: 25px 20px;
     }
 }
