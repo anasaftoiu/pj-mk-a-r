@@ -5,103 +5,104 @@ body{
 }
 
 
-
 /* ==========================================================================
-   STILIZARE NAVBAR PREMIUM ȘI RESPONSIV (TOTAL CORNET)
+   1. STILUL PENTRU MOBIL (MOBILE-FIRST - SETĂRI DE BAZĂ PENTRU TELEFOANE)
    ========================================================================== */
 .main-navbar {
-    background-color: #ffffff; /* Fundal alb imaculat pentru contrast */
-    padding: 35px 0;           /* Spațiere verticală generoasă pe desktop */
-    margin-bottom: 40px;       /* Distanță până la conținutul paginii */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Umbră fină sub meniu */
-    position: sticky;          /* Rămâne fix sus la navigare */
+    background-color: #ffffff;
+    padding: 15px 0;              /* Padding compact pe telefon */
+    margin-bottom: 20px;          /* Spațiu fin sub navbar pe mobil */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
 }
 
 .nav-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: center;   /* Centrează meniul pe ecrane mari */
+    width: 100%;
+    padding: 0 15px;              /* Margini interne de siguranță pentru ecranul mobil */
+    box-sizing: border-box;       /* Previne ieșirea elementelor din ecran */
+}
+
+.menu {
+    width: 100%;
 }
 
 .menu ul {
-    list-style-type: none;     /* Elimină punctele din listă */
+    list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 50px;                 /* Spațiu între linkuri pe desktop */
-    flex-wrap: wrap;           /* Permite aranjarea pe rânduri noi dacă e necesar */
-    justify-content: center;
+    flex-direction: column;       /* Pe telefon se așază obligatoriu unul sub altul */
+    gap: 12px;                    /* Distanță optimă între linkuri pe mobil */
+    align-items: center;          /* Centrează textul perfect pe mijlocul ecranului */
+    width: 100%;
 }
 
 .nav-link {
     text-decoration: none;
-    color: #52606D;            /* Griul elegant al textului */
-    font-size: 15px;
+    color: #52606D;
+    font-size: 14px;              /* Text lizibil pe mobil, fără să fie prea mare */
     font-weight: 500;
-    letter-spacing: 1px;       /* Distanță fină între litere */
-    text-transform: uppercase; /* Transformă în majuscule */
-    padding: 8px 0;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s ease;
-}
-
-/* Efect vizual la trecerea cu mouse-ul */
-.nav-link:hover {
-    color: #4B0082;            /* Indigo */
-}
-
-/* Linia decorativă de la hover */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #4B0082;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    display: block;               /* Face zona de atingere mai mare pe ecranul tactil */
     transition: all 0.3s ease;
-    transform: translateX(-50%);
 }
 
-.nav-link:hover::after {
-    width: 100%;
+.nav-link:hover {
+    color: #4B0082;
 }
 
 /* ==========================================================================
-   ADAPTARE AUTOMATĂ PENTRU TELEFOANE (RESPONSIVE DESIGN)
+   2. ADAPTARE PENTRU TABLETE ȘI LAPTOPURI (ECRANE MARI)
    ========================================================================== */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 769px) {
     .main-navbar {
-        padding: 20px 0;       /* Reducem înălțimea navbarului pe telefon ca să nu ocupe jumatate de ecran */
-        margin-bottom: 25px;   /* Spațiu mai mic sub navbar pe mobil */
+        padding: 30px 0;          /* Pe ecrane mari, navbarul devine mai lat și elegant */
+        margin-bottom: 40px;
+    }
+
+    .nav-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
     }
 
     .menu ul {
-        flex-direction: column; /* Schimbă așezarea din linie orizontală în listă verticală */
-        gap: 15px;             /* Spațiu optim pe verticală între butoane ca să poată fi apăsate ușor cu degetul */
-        text-align: center;
-        width: 100%;
+        flex-direction: row;      /* Trece automat în linie orizontală pe PC */
+        gap: 45px;                /* Spațiere elegantă între butoane */
+        justify-content: center;
     }
 
     .nav-link {
-        font-size: 14px;       /* Dimensiune ușor redusă a textului pentru ecranele mici */
-        letter-spacing: 0.5px; /* Distanțare mai mică între litere ca să încapă cuvintele lungi */
-        padding: 6px 0;
-        width: auto;
+        font-size: 15px;
+        letter-spacing: 1px;
+        padding: 8px 0;
+        position: relative;
     }
-    
-    /* Linia de hover se va extinde pe mobil din stânga spre dreapta, fiind mai stabilă vizual */
+
+    /* Linia decorativă de hover se activează doar pe ecranele mari (PC/Laptop) */
     .nav-link::after {
-        left: 0;
-        transform: none;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #4B0082;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
     }
 }
+
 
 
 
