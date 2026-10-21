@@ -346,3 +346,72 @@ h2 {
         width: auto; /* Renunță la lățimea 100% de mobil */
     }
 }
+
+/* ==========================================
+   STILURI SPECIALE PENTRU MOBIL (RESPONSIVE)
+   ========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Meniul de Navigare (Aliniat pe orizontală, de la stânga la dreapta) */
+    .menu ul {
+        display: flex !important;
+        flex-direction: row !important;  /* Forțează așezarea în linie */
+        flex-wrap: wrap;                 /* Trece pe rând nou doar dacă ecranul e extrem de mic */
+        justify-content: center;         /* Centrează meniul pe ecran */
+        gap: 6px 10px;                   /* Spațiu mic între link-uri (6px sus/jos, 10px stânga/dreapta) */
+        padding: 10px 5px !important;
+        margin: 0;
+        list-style: none;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 11px !important;      /* Font mai mic ca să încapă toate pe un singur rând */
+        padding: 5px 6px !important;     /* Spațiere compactă pe orizontală */
+        letter-spacing: 0.3px !important;
+        white-space: nowrap;             /* Împiedică ruperea textului din interiorul unui link (ex: "DESPRE MINE") */
+    }
+
+    /* 2. Zona de text (Hero Section) */
+    .hero-content h1 {
+        font-size: 28px !important;      /* Micșorează titlul principal ca să nu ocupe tot ecranul */
+        line-height: 1.3;
+        padding: 0 15px;
+    }
+
+    .hero-content p {
+        font-size: 15px !important;      /* Ajustează textul descriptiv */
+        padding: 0 20px;
+    }
+
+    /* 3. Butoanele de jos (PROGRAMEAZĂ-TE / VEZI SERVICIILE) */
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important; /* Butoanele stau unul sub altul pentru a avea lățime completă și a fi ușor de apăsat */
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    /* Stilul comun pentru ambele butoane pe mobil */
+    .hero-buttons a, 
+    .hero-buttons button,
+    .btn-programeaza, 
+    .btn-vezi {
+        display: block !important;
+        width: 100% !important;          /* Ocupă toată lățimea ecranului (minus marginile) */
+        max-width: 320px;                /* Nu le lasă să devină exagerat de late pe telefoane mari */
+        box-sizing: border-box;
+        padding: 14px 20px !important;   /* Spațiu interior generos pentru text */
+        text-align: center;
+        font-size: 14px !important;      /* Dimensiune perfectă pentru lizibilitate */
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border-radius: 30px !important;  /* Păstrează marginile rotunjite din design */
+        white-space: nowrap;             /* Garantează că textul nu se va tăia niciodată */
+    }
+}
+
