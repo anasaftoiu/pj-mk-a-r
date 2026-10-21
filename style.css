@@ -1,0 +1,375 @@
+body{
+  background-color:  #F0F8FF;
+  color: #1A237E;
+  font-family: Arial,sans-serif;
+}
+
+
+
+
+/* ==========================================================================
+   STILIZARE NAVBAR PREMIUM (MODIFICAT - COBORT ȘI AERISIT)
+   ========================================================================== */
+.main-navbar {
+    background-color: #ffffff; /* Fundal alb imaculat pentru contrast */
+    padding: 35px 0;           /* Mărit de la 20px pentru a coborî vizual meniul și a-l face mai impunător */
+    margin-bottom: 40px;       /* Împinge conținutul paginii (Hero) mai jos, eliminând senzația de înghesuit */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Umbră extrem de subtilă */
+    position: sticky;          /* Rămâne fix sus la scroll într-un mod elegant */
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;   /* Centrează perfect meniul pe ecran */
+}
+
+.menu ul {
+    list-style-type: none;     /* Elimină punctele din listă */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 50px;                 /* Spațiere mărită între legături pentru un aspect mai aerisit */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #52606D;            /* Griul rafinat din restul site-ului */
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;       /* Distanțare ușoară între litere pentru eleganță */
+    text-transform: uppercase; /* Scris cu majuscule discrete */
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Efect vizual la hover: Indigo-ul din paleta de culori a site-ului */
+.nav-link:hover {
+    color: #4B0082; 
+}
+
+/* Linia fină decorativă care se deschide de la mijloc la hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #4B0082;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;               /* Linia se extinde complet doar când pui mouse-ul */
+}
+
+
+
+
+/* ==========================================================================
+   1. STILURI GENERALE ȘI FUNDAL
+   ========================================================================== */
+body {
+    background-color: #F4F8FA; /* Albastru extrem de fin și deschis, aproape de alb */
+    color: #2C3E50;            /* Gri închis spre albastru, foarte elegant */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Containere pentru aliniere */
+.container, .services-container, .gallery-container, .about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #4B0082; /* Accent Indigo pentru titluri */
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    color: #606F7B;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   2. PAGINA ACASĂ (INDEX) - HERO & INTRO
+   ========================================================================== */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: 38px;
+    color: #1A237E; /* Albastru închis regal */
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.hero-section .subtitle {
+    font-size: 18px;
+    color: #52606D;
+    margin-bottom: 35px;
+}
+
+/* Butoane interactive */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 30px; /* Margini complet rotunjite și fine */
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4B0082; /* Indigo */
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(75, 0, 130, 0.15);
+}
+
+.btn-primary:hover {
+    background-color: #360061;
+    transform: translateY(-2px); /* Ridicare ușoară la hover */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #4B0082;
+    border: 2px solid #4B0082;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(75, 0, 130, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Scurta prezentare */
+.intro-section {
+    background-color: #ffffff; /* Fundal alb curat pentru contrast */
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 17px;
+    font-style: italic;
+    color: #3A4A5B;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* ==========================================================================
+   3. CARDURI DE SERVICII PRINCIPALE (INDEX)
+   ========================================================================== */
+.featured-services {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.service-card {
+    background: #ffffff;
+    flex: 1;
+    min-width: 280px;
+    max-width: 310px;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    color: #1A237E;
+    font-size: 19px;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #52606D;
+    margin: 0;
+}
+
+/* ==========================================================================
+   4. PAGINA DE SERVICII - TABEL ELEGANT
+   ========================================================================== */
+.prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden; /* Ascunde colțurile ascuțite ale tabelului */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+    margin-top: 20px;
+}
+
+.prices-table th {
+    background-color: #4B0082; /* Antet tabel indigo */
+    color: #ffffff;
+    text-align: left;
+    padding: 18px 24px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.prices-table td {
+    padding: 20px 24px;
+    border-bottom: 1px solid #EBF1F5;
+    color: #2C3E50;
+    font-size: 15px;
+}
+
+.prices-table tr:last-child td {
+    border-bottom: none;
+}
+
+.prices-table td strong {
+    color: #1A237E;
+}
+
+.prices-table td small {
+    color: #7B8A96;
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   5. PAGINA GALERIE - PORTOFOLIU GRID
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover; /* Decupează armonios pozele indiferent de dimensiunea originală */
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Zoom discret la trecerea cu mouse-ul */
+}
+
+.gallery-tag {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4A5568;
+    background-color: #ffffff;
+    border-top: 1px solid #F0F4F8;
+}
+
+/* ==========================================================================
+   6. PAGINA DESPRE MINE - PARAGRAFE ȘI EMBLEME
+   ========================================================================== */
+.about-paragraphs {
+    max-width: 750px;
+    margin: 30px auto 50px auto;
+    font-size: 16px;
+    color: #3A4A5B;
+    text-align: center;
+}
+
+.about-paragraphs p {
+    margin-bottom: 20px;
+}
+
+.info-badge {
+    background: #ffffff;
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border-left: 4px solid #4B0082; /* Linie fină decorativă indigo în stânga */
+}
+
+.info-badge h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #1A237E;
+    font-size: 18px;
+}
+
+.info-badge p {
+    margin: 0;
+    font-size: 14.5px;
+    color: #52606D;
+}
+/* ==========================================================================
+   7. STILIZARE FOOTER (SUBSOL PAGINĂ)
+   ========================================================================== */
+footer {
+    width: 100%;
+    background-color: transparent; /* Rămâne pe fundalul fin al site-ului */
+    padding: 30px 0;
+    margin-top: 60px;              /* Împinge footer-ul ca să respire conținutul */
+    border-top: 1px solid #E2E8F0; /* O linie fină despărțitoare gri-albăstruie */
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;               /* Text mic și elegant */
+    color: #718096;                /* Un gri șters, finuț */
+    letter-spacing: 0.5px;
+}
