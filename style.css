@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET ȘI STRUCTURĂ FLUID REZOLVATĂ (RĂMAS SCHIMBATĂ)
+   1. RESET ȘI STRUCTURĂ FLUIDĂ (REZOLVĂ FOOTER-UL ȘI INTRO PE TOATE ECRANELE)
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -12,9 +12,9 @@ body {
     color: #2C3E50;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    display: block; 
 }
 
+/* Containere pentru aliniere și centrare generală */
 .container, .services-container, .gallery-container, .about-container, .featured-services {
     max-width: 1000px;
     margin: 0 auto;
@@ -39,7 +39,7 @@ h2 {
 }
 
 /* ==========================================================================
-   2. CORECTAT: STRUCTURĂ NAVBAR GLOBALĂ (MEREU PE ORIZONTALĂ)
+   2. STRUCTURĂ NAVBAR (MĂRIME ORIGINALĂ PC, ORIZONTAL COMPACT PE MOBIL)
    ========================================================================== */
 .main-navbar {
     background-color: #ffffff;
@@ -68,8 +68,8 @@ h2 {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row;       /* Forțează așezarea orizontală pe orice ecran */
-    gap: 45px;                 /* Spațierea standard pentru monitoare PC */
+    flex-direction: row;      /* Elemente așezate orizontal pe orice ecran */
+    gap: 45px;                
     justify-content: center;  
     align-items: center;          
     width: 100%;
@@ -86,7 +86,7 @@ h2 {
     display: block;              
     transition: all 0.3s ease;
     text-align: center;
-    white-space: nowrap;       /* Împiedică ruperea cuvintelor pe rând nou */
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -94,7 +94,7 @@ h2 {
 }
 
 /* ==========================================================================
-   3. PAGINA ACASĂ - HERO SECTION (RĂMAS SCHIMBATĂ)
+   3. PAGINA ACASĂ - HERO SECTION (EVITĂ SUPRAPUNEREA CU NAVBAR-UL)
    ========================================================================== */
 .hero-section {
     text-align: center;
@@ -164,7 +164,7 @@ h2 {
 }
 
 /* ==========================================================================
-   4. SEȚIUNE INTRO (RĂMAS SCHIMBATĂ)
+   4. CORECTARE SECȚIUNE INTRO (PARAGRAFUL DE SUB HERO)
    ========================================================================== */
 .intro-section {
     background-color: #ffffff;
@@ -187,7 +187,7 @@ h2 {
 }
 
 /* ==========================================================================
-   5. SERVICII VEDETA (RĂMAS SCHIMBATĂ)
+   5. SERVICII VEDETA (CARDURI DISPUSE CORECT PE ORIZONTALĂ PE PC)
    ========================================================================== */
 .services-grid {
     display: flex;
@@ -230,7 +230,7 @@ h2 {
 }
 
 /* ==========================================================================
-   6. FOOTER (RĂMAS SCHIMBATĂ)
+   6. CORECTARE FOOTER (OBLIGAT SĂ STEA CENTRAT ȘI JOS)
    ========================================================================== */
 footer {
     background-color: #ffffff;
@@ -255,7 +255,7 @@ footer p {
 }
 
 /* ==========================================================================
-   7. INTEROGĂRI MEDIA RESTRÂNSE STRICT PENTRU TELEFOANE (SUB 768px)
+   7. CORECTURI DE ADAPTARE STRICT PENTRU TELEFOANE (SUB 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
     .main-navbar {
@@ -267,7 +267,7 @@ footer p {
         padding: 0 5px;              
     }
 
-    /* CORECTAT: Ajustează dinamic spațiile și fontul meniului exclusiv pe mobil */
+    /* Meniul rămâne pe o singură linie orizontală și pe telefoane */
     .menu ul {
         flex-direction: row;      
         flex-wrap: wrap;          
@@ -288,6 +288,7 @@ footer p {
         font-size: 26px;
     }
 
+    /* Butoanele devin verticale doar pe ecrane mici */
     .cta-buttons {
         flex-direction: column;
         gap: 15px;
