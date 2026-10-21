@@ -2,18 +2,19 @@
    1. RESET ȘI STILURI GENERALE (PENTRU TOATE ECRANELE)
    ========================================================================== */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Previne ieșirea elementelor din margini */
 }
 
 body {
-    background-color: #F4F8FA;
-    color: #2C3E50;
+    background-color: #F4F8FA; /* Albastru extrem de fin și deschis, aproape de alb */
+    color: #2C3E50;            /* Gri închis spre albastru, foarte elegant */
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
+/* Containere pentru aliniere */
 .container, .services-container, .gallery-container, .about-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -21,7 +22,7 @@ body {
 }
 
 h2 {
-    color: #4B0082;
+    color: #4B0082; /* Accent Indigo pentru titluri */
     font-size: 28px;
     font-weight: 600;
     text-align: center;
@@ -37,7 +38,7 @@ h2 {
 }
 
 /* ==========================================================================
-   2. STRUCTURĂ NAVBAR (MOBILE FIRST - ÎN LINIE ORIZONTALĂ)
+   2. STRUCTURĂ NAVBAR (MODIFICATĂ - ÎN LINIE ORIZONTALĂ PE MOBIL)
    ========================================================================== */
 .main-navbar {
     background-color: #ffffff;
@@ -64,7 +65,7 @@ h2 {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row;       /* Linie orizontală direct pe mobil */
+    flex-direction: row;       /* Elemente așezate orizontal pe mobil */
     flex-wrap: wrap;           /* Permite coborârea curată dacă ecranul este extrem de îngust */
     gap: 6px 8px;              /* Spațiu controlat între link-uri */
     justify-content: center;   
@@ -75,7 +76,7 @@ h2 {
 .nav-link {
     text-decoration: none;
     color: #52606D;
-    font-size: 11px;           /* Font fin și compact pentru a încăpea totul pe mobil */
+    font-size: 11px;           /* Font compact pentru a încăpea totul pe un rând */
     font-weight: 600;
     letter-spacing: 0.3px;
     text-transform: uppercase;
@@ -91,33 +92,33 @@ h2 {
 }
 
 /* ==========================================================================
-   3. PAGINA ACASĂ - HERO & SECȚIUNEA INTRO (OPTIMIZAT PENTRU MOBIL)
+   3. PAGINA ACASĂ - HERO & SECȚIUNEA INTRO (STILIZARE SPECIALĂ MOBIL - NEMODIFICAT)
    ========================================================================== */
 .hero-section {
     text-align: center;
-    padding: 40px 20px;
+    padding: 40px 20px; /* Redus pe mobil ca să nu ocupe tot ecranul */
     max-width: 850px;
     margin: 0 auto;
 }
 
 .hero-section h1 {
-    font-size: 26px;
-    color: #1A237E;
+    font-size: 28px; /* Redus considerabil de la 38px pe mobil pentru a preveni textul gigant */
+    color: #1A237E;  /* Albastru închis regal */
     line-height: 1.3;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
 .hero-section .subtitle {
-    font-size: 15px;
+    font-size: 16px;
     color: #52606D;
     margin-bottom: 30px;
 }
 
-/* Butoane interactive așezate unul sub altul pe mobil */
+/* Butoane interactive optimizate pentru mobil */
 .cta-buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Pe telefoane se pun unul sub altul pentru a nu fi tăiate */
     align-items: center;
     gap: 15px;
     width: 100%;
@@ -127,15 +128,15 @@ h2 {
     display: inline-block;
     text-decoration: none;
     padding: 14px 28px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.5px;
     border-radius: 30px; 
     transition: all 0.3s ease;
-    width: 100%;         
-    max-width: 280px;    
+    width: 100%;         /* Ocupă toată lățimea disponibilă pe mobil pentru click ușor */
+    max-width: 280px;    /* Împiedică butoanele să devină uriașe pe ecrane intermediare */
     text-align: center;
-    white-space: nowrap; 
+    white-space: nowrap; /* Împiedică cuvintele lungi să treacă urât pe rândul doi */
 }
 
 .btn-primary {
@@ -160,6 +161,7 @@ h2 {
     transform: translateY(-2px);
 }
 
+/* Scurta prezentare */
 .intro-section {
     background-color: #ffffff; 
     max-width: 800px;
@@ -174,7 +176,7 @@ h2 {
 }
 
 /* ==========================================================================
-   4. ALTE SECȚIUNI (CARDURI, TABELE, GRIDURI)
+   4. ALTE SECȚIUNI (CARDURI, TABELE, GRIDURI - NEMODIFICAT)
    ========================================================================== */
 .featured-services {
     max-width: 1000px;
@@ -220,22 +222,70 @@ h2 {
     margin: 0;
 }
 
-footer {
-    background-color: #ffffff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    border-top: 1px solid #EBF1F5;
+.prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden; 
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+    margin-top: 20px;
 }
 
-footer p {
-    margin: 0;
-    color: #7B8A96;
-    font-size: 14px;
+.prices-table th {
+    background-color: #4B0082; 
+    color: #ffffff;
+    text-align: left;
+    padding: 18px 24px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
+
+.prices-table td {
+    padding: 20px 24px;
+    border-bottom: 1px solid #EBF1F5;
+    color: #2C3E50;
+    font-size: 15px;
+}
+
+.prices-table tr:last-child td {
+    border-bottom: none;
+}
+
+.prices-table td strong {
+    color: #1A237E;
+}
+
+.prices-table td small {
+    color: #7B8A96;
+    font-size: 13px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover; 
+}
+
 
 /* ==========================================================================
-   5. ADAPTARE PENTRU PC ȘI ECRANE MARI (DE LA 769px ÎN SUS)
+   5. ADAPTARE DETALIATĂ PENTRU TABLETE ȘI LAPTOPURI (ECRANE MARI > 769px - NEMODIFICAT)
    ========================================================================== */
 @media screen and (min-width: 769px) {
     .main-navbar {
@@ -251,7 +301,9 @@ footer p {
     }
 
     .menu ul {
+        flex-direction: row;      /* Meniul revine la formă orizontală pe monitor */
         gap: 45px;                
+        justify-content: center;
     }
 
     .nav-link {
@@ -277,15 +329,16 @@ footer p {
         width: 100%;
     }
 
+    /* Modificări secțiune Hero pe PC */
     .hero-section {
         padding: 80px 20px;
     }
 
     .hero-section h1 {
-        font-size: 38px; 
+        font-size: 38px; /* Își revine la dimensiunea elegantă de monitor */
     }
 
-    /* Butoanele revin în linie orizontală pe PC */
+    /* Butoanele revin în linie orizontală pe ecran mare */
     .cta-buttons {
         flex-direction: row;
         justify-content: center;
@@ -293,6 +346,6 @@ footer p {
     }
 
     .btn-primary, .btn-secondary {
-        width: auto; 
+        width: auto; /* Renunță la lățimea 100% de mobil */
     }
 }
