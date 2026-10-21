@@ -256,12 +256,21 @@ footer p {
 }
 
 /* ==========================================================================
-   7. CORECTARE COMPLETĂ GALERIE FOTO (LIMITARE DIMENSIUNI PC + TELEFON)
+   7. SECTIUNE GALERIE - COMPACTĂ ȘI CURATĂ (DOAR ÎN CSS)
    ========================================================================== */
+.gallery-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+}
+
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Așezare flexibilă pe PC */
-    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
     margin-top: 30px;
     width: 100%;
 }
@@ -273,30 +282,46 @@ footer p {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     width: 100%;
-    max-width: 280px; /* Previne extinderea exagerată a casetei pe PC */
-    margin: 0 auto;   /* Centrează imaginile pe ecran */
+    max-width: 260px; /* Limitează lățimea casetei pe PC la o dimensiune mică */
+    margin: 0 auto;
 }
 
-/* REPARAT: Imaginile nu mai sunt uriașe, au dimensiuni compacte și elegante */
+/* Stilul imaginilor: dimensiune uniformă, compactă, fără deformare */
 .gallery-item img {
     width: 100%;
-    height: 300px;       /* Înălțime maximă redusă și fixă pentru PC și telefon */
-    object-fit: cover;   /* Decupează curat imaginea fără să o deformeze sau să o lungească */
+    height: 300px;     /* Înălțime fixă elegantă pentru portofoliu */
+    object-fit: cover; /* Decupează inteligent poza în interiorul casetei */
     display: block;
 }
 
-/* Forțare regulă strict pentru ecrane de telefon (sub 768px) */
+.gallery-tag {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #4B0082;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Adaptare galerie strict pentru ecrane de telefon */
 @media screen and (max-width: 768px) {
     .gallery-grid {
-        grid-template-columns: 1fr; /* Pune pozele una sub alta pe mobil */
-        gap: 15px;
+        flex-direction: column; /* Aliniază pozele vertical, una sub alta */
+        align-items: center;
+        gap: 20px;
     }
 
     .gallery-item {
-        max-width: 260px; /* Limitează lățimea pozei pe telefon ca să nu ocupe tot ecranul */
+        max-width: 240px; /* Poze și mai compacte pe ecranul telefonului */
     }
 
     .gallery-item img {
-        height: 280px;    /* Înălțime compactă și pe telefon pentru a nu fi uriașă */
+        height: 280px;    /* Înălțime redusă pentru mobil */
     }
 }
+
