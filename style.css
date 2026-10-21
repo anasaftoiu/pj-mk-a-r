@@ -6,18 +6,18 @@ body{
 
 
 
-
 /* ==========================================================================
-   STILIZARE NAVBAR PREMIUM (MODIFICAT - COBORT ȘI AERISIT)
+   STILIZARE NAVBAR PREMIUM ȘI RESPONSIV (TOTAL CORNET)
    ========================================================================== */
 .main-navbar {
     background-color: #ffffff; /* Fundal alb imaculat pentru contrast */
-    padding: 35px 0;           /* Mărit de la 20px pentru a coborî vizual meniul și a-l face mai impunător */
-    margin-bottom: 40px;       /* Împinge conținutul paginii (Hero) mai jos, eliminând senzația de înghesuit */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Umbră extrem de subtilă */
-    position: sticky;          /* Rămâne fix sus la scroll într-un mod elegant */
+    padding: 35px 0;           /* Spațiere verticală generoasă pe desktop */
+    margin-bottom: 40px;       /* Distanță până la conținutul paginii */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Umbră fină sub meniu */
+    position: sticky;          /* Rămâne fix sus la navigare */
     top: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 .nav-container {
@@ -25,7 +25,7 @@ body{
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: center;   /* Centrează perfect meniul pe ecran */
+    justify-content: center;   /* Centrează meniul pe ecrane mari */
 }
 
 .menu ul {
@@ -33,27 +33,30 @@ body{
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 50px;                 /* Spațiere mărită între legături pentru un aspect mai aerisit */
+    gap: 50px;                 /* Spațiu între linkuri pe desktop */
+    flex-wrap: wrap;           /* Permite aranjarea pe rânduri noi dacă e necesar */
+    justify-content: center;
 }
 
 .nav-link {
     text-decoration: none;
-    color: #52606D;            /* Griul rafinat din restul site-ului */
+    color: #52606D;            /* Griul elegant al textului */
     font-size: 15px;
     font-weight: 500;
-    letter-spacing: 1px;       /* Distanțare ușoară între litere pentru eleganță */
-    text-transform: uppercase; /* Scris cu majuscule discrete */
+    letter-spacing: 1px;       /* Distanță fină între litere */
+    text-transform: uppercase; /* Transformă în majuscule */
     padding: 8px 0;
     position: relative;
+    display: inline-block;
     transition: color 0.3s ease;
 }
 
-/* Efect vizual la hover: Indigo-ul din paleta de culori a site-ului */
+/* Efect vizual la trecerea cu mouse-ul */
 .nav-link:hover {
-    color: #4B0082; 
+    color: #4B0082;            /* Indigo */
 }
 
-/* Linia fină decorativă care se deschide de la mijloc la hover */
+/* Linia decorativă de la hover */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -67,7 +70,37 @@ body{
 }
 
 .nav-link:hover::after {
-    width: 100%;               /* Linia se extinde complet doar când pui mouse-ul */
+    width: 100%;
+}
+
+/* ==========================================================================
+   ADAPTARE AUTOMATĂ PENTRU TELEFOANE (RESPONSIVE DESIGN)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .main-navbar {
+        padding: 20px 0;       /* Reducem înălțimea navbarului pe telefon ca să nu ocupe jumatate de ecran */
+        margin-bottom: 25px;   /* Spațiu mai mic sub navbar pe mobil */
+    }
+
+    .menu ul {
+        flex-direction: column; /* Schimbă așezarea din linie orizontală în listă verticală */
+        gap: 15px;             /* Spațiu optim pe verticală între butoane ca să poată fi apăsate ușor cu degetul */
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 14px;       /* Dimensiune ușor redusă a textului pentru ecranele mici */
+        letter-spacing: 0.5px; /* Distanțare mai mică între litere ca să încapă cuvintele lungi */
+        padding: 6px 0;
+        width: auto;
+    }
+    
+    /* Linia de hover se va extinde pe mobil din stânga spre dreapta, fiind mai stabilă vizual */
+    .nav-link::after {
+        left: 0;
+        transform: none;
+    }
 }
 
 
