@@ -256,53 +256,47 @@ footer p {
 }
 
 /* ==========================================================================
-   7. CORECTURI DE ADAPTARE STRICT PENTRU TELEFOANE (SUB 768px)
+   7. CORECTARE COMPLETĂ GALERIE FOTO (LIMITARE DIMENSIUNI PC + TELEFON)
    ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Așezare flexibilă pe PC */
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.gallery-item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    max-width: 280px; /* Previne extinderea exagerată a casetei pe PC */
+    margin: 0 auto;   /* Centrează imaginile pe ecran */
+}
+
+/* REPARAT: Imaginile nu mai sunt uriașe, au dimensiuni compacte și elegante */
+.gallery-item img {
+    width: 100%;
+    height: 300px;       /* Înălțime maximă redusă și fixă pentru PC și telefon */
+    object-fit: cover;   /* Decupează curat imaginea fără să o deformeze sau să o lungească */
+    display: block;
+}
+
+/* Forțare regulă strict pentru ecrane de telefon (sub 768px) */
 @media screen and (max-width: 768px) {
-    .main-navbar {
-        padding: 12px 0;              
-        margin-bottom: 20px;          
-    }
-
-    .nav-container {
-        padding: 0 5px;              
-    }
-
-    /* Meniul trece în linie strânsă pe mobil */
-    .menu ul {
-        flex-direction: row;       
-        flex-wrap: wrap;           
-        gap: 6px 8px;              
-    }
-
-    .nav-link {
-        font-size: 11px;           
-        padding: 6px 6px;
-        letter-spacing: 0.3px;
-    }
-
-    .hero-section {
-        padding: 40px 20px;
-    }
-
-    .hero-section h1 {
-        font-size: 26px;
-    }
-
-    /* Butoanele devin verticale doar pe ecrane mici */
-    .cta-buttons {
-        flex-direction: column;
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Pune pozele una sub alta pe mobil */
         gap: 15px;
     }
 
-    .btn-primary, .btn-secondary {
-        width: 100%;         
-        max-width: 280px;    
+    .gallery-item {
+        max-width: 260px; /* Limitează lățimea pozei pe telefon ca să nu ocupe tot ecranul */
     }
 
-    .intro-section {
-        margin: 20px auto;
-        padding: 20px;
-        width: calc(100% - 30px);
+    .gallery-item img {
+        height: 280px;    /* Înălțime compactă și pe telefon pentru a nu fi uriașă */
     }
 }
