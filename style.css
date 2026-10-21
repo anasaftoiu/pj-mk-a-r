@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET ȘI STRUCTURĂ FLUIDĂ (REZOLVĂ FOOTER-UL ȘI INTRO PE TOATE ECRANELE)
+   1. RESET ȘI STILURI GENERALE (PENTRU TOATE ECRANELE)
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -11,12 +11,14 @@ body {
     background-color: #F4F8FA;
     color: #2C3E50;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
-    display: block; /* Dezactivează Flexbox de pe body care deforma structura */
+    display: block;
 }
 
-/* Containere pentru aliniere și centrare generală */
-.container, .services-container, .gallery-container, .about-container, .featured-services {
+/* Containere pentru aliniere stabilă */
+.container, .services-container, .gallery-container, .about-container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -28,7 +30,7 @@ h2 {
     font-size: 28px;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .section-intro {
@@ -40,7 +42,7 @@ h2 {
 }
 
 /* ==========================================================================
-   2. STRUCTURĂ NAVBAR (MĂRIME ORIGINALĂ PC, COMPACT PE MOBIL)
+   2. STRUCTURĂ NAVBAR (MĂRIMEE ORIGINALĂ PC, ORIZONTAL COMPACT PE MOBIL)
    ========================================================================== */
 .main-navbar {
     background-color: #ffffff;
@@ -95,7 +97,7 @@ h2 {
 }
 
 /* ==========================================================================
-   3. PAGINA ACASĂ - HERO SECTION (EVITĂ SUPRAPUNEREA CU NAVBAR-UL)
+   3. PAGINA ACASĂ - HERO SECTION
    ========================================================================== */
 .hero-section {
     text-align: center;
@@ -165,17 +167,17 @@ h2 {
 }
 
 /* ==========================================================================
-   4. CORECTARE SECȚIUNE INTRO (PARAGRAFUL ALINIAT PROST ÎN IMAGINE)
+   4. SECTIUNE INTRO (CASETA ALBĂ DE SUB HERO - CENTRATĂ CORECT VIZUAL)
    ========================================================================== */
 .intro-section {
     background-color: #ffffff; 
-    max-width: 1000px;         /* Aliniat perfect la lățimea grilei de carduri */
-    margin: 40px auto;         /* Centrează stabil pe mijlocul ecranului */
+    max-width: 1000px;         
+    margin: 40px auto;         
     padding: 30px 40px;
     border-radius: 16px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-    width: calc(100% - 40px);  /* Previne lipirea de margini pe monitoare intermediare */
+    width: calc(100% - 40px);  
 }
 
 .intro-section p {
@@ -183,16 +185,23 @@ h2 {
     font-style: italic;
     color: #3A4A5B;
     margin: 0 auto;
-    max-width: 800px;          /* Împiedică rândurile de text să devină prea lungi */
+    max-width: 800px;          
     text-align: center;
 }
 
 /* ==========================================================================
-   5. SERVICII VEDETA (CARDURI DISPUSE CORECT PE ORIZONTALĂ PE PC)
+   5. SERVICII VEDETA (GRILE DE CARDURI ORIZONTALE PE PC)
    ========================================================================== */
+.featured-services {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
 .services-grid {
     display: flex;
-    flex-direction: row;       /* Linie orizontală pe desktop */
+    flex-direction: row;       
     flex-wrap: wrap;
     gap: 25px;
     justify-content: center;
@@ -231,7 +240,94 @@ h2 {
 }
 
 /* ==========================================================================
-   6. CORECTARE FOOTER (OBLIGAT SĂ STEA CENTRAT ȘI JOS)
+   6. TABELUL DE PREȚURI (SPECIFIC PAGINII DE SERVICII)
+   ========================================================================== */
+.prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden; 
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+    margin-top: 20px;
+}
+
+.prices-table th {
+    background-color: #4B0082; 
+    color: #ffffff;
+    text-align: left;
+    padding: 18px 24px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.prices-table td {
+    padding: 20px 24px;
+    border-bottom: 1px solid #EBF1F5;
+    color: #2C3E50;
+    font-size: 15px;
+}
+
+.prices-table tr:last-child td {
+    border-bottom: none;
+}
+
+.prices-table td strong {
+    color: #1A237E;
+}
+
+.prices-table td small {
+    color: #7B8A96;
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   7. SEȚIUNEA GALERIE FOTO REPARATĂ (COMPACTĂ PE PC ȘI MOBIL, GRID NATIIV)
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    /* Împiedică pozele să devină gigantice folosind o mărime maximă controlată de 240px */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 240px)); 
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: center; /* Menține întregul grid centrat frumos pe mijlocul ecranului */
+}
+
+.gallery-item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    width: 100%;
+}
+
+/* REPARAT DEFINITIV: Pozele nu mai sunt uriașe pe niciun tip de ecran */
+.gallery-item img {
+    width: 100%;
+    height: 300px;       /* Dimensiune portret verticală compactă perfectă */
+    object-fit: cover;   /* Decupează conținutul fără să lungească sau să distorsioneze imaginea */
+    display: block;
+}
+
+.gallery-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4B0082;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   8. CORECTARE COMPLETĂ FOOTER (CENTRAT ȘI IMPINS JOS)
    ========================================================================== */
 footer {
     background-color: #ffffff;
@@ -246,7 +342,7 @@ footer {
 .footer-content {
     max-width: 1000px;
     margin: 0 auto;
-    text-align: center;        /* Forțează centrarea textului copyright pe PC */
+    text-align: center;        
 }
 
 footer p {
@@ -256,72 +352,53 @@ footer p {
 }
 
 /* ==========================================================================
-   7. SECTIUNE GALERIE - COMPACTĂ ȘI CURATĂ (DOAR ÎN CSS)
+   9. INTEROGĂRI MEDIA RESTRÂNSE STRICT PENTRU TELEFOANE (SUB 768px)
    ========================================================================== */
-.gallery-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    width: 100%;
-}
-
-.gallery-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-    margin-top: 30px;
-    width: 100%;
-}
-
-.gallery-item {
-    position: relative;
-    background: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    width: 100%;
-    max-width: 260px; /* Limitează lățimea casetei pe PC la o dimensiune mică */
-    margin: 0 auto;
-}
-
-/* Stilul imaginilor: dimensiune uniformă, compactă, fără deformare */
-.gallery-item img {
-    width: 100%;
-    height: 300px;     /* Înălțime fixă elegantă pentru portofoliu */
-    object-fit: cover; /* Decupează inteligent poza în interiorul casetei */
-    display: block;
-}
-
-.gallery-tag {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #4B0082;
-    padding: 6px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Adaptare galerie strict pentru ecrane de telefon */
 @media screen and (max-width: 768px) {
-    .gallery-grid {
-        flex-direction: column; /* Aliniază pozele vertical, una sub alta */
-        align-items: center;
-        gap: 20px;
+    .main-navbar {
+        padding: 12px 0;              
+        margin-bottom: 20px;          
     }
 
-    .gallery-item {
-        max-width: 240px; /* Poze și mai compacte pe ecranul telefonului */
+    .nav-container {
+        padding: 0 5px;              
     }
 
-    .gallery-item img {
-        height: 280px;    /* Înălțime redusă pentru mobil */
+    /* Meniul rămâne perfect orizontal pe ecranele tactile */
+    .menu ul {
+        flex-direction: row;       
+        flex-wrap: wrap;           
+        gap: 6px 8px;              
+    }
+
+    .nav-link {
+        font-size: 11px;           
+        padding: 6px 6px;
+        letter-spacing: 0.3px;
+    }
+
+    .hero-section {
+        padding: 40px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 26px;
+    }
+
+    /* Încadrează butoanele pe verticală exclusiv pe mobil pentru accesibilitate */
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;         
+        max-width: 280px;    
+    }
+
+    .intro-section {
+        margin: 20px auto;
+        padding: 20px;
+        width: calc(100% - 30px);
     }
 }
-
